@@ -1,0 +1,499 @@
+New Shell process 5
+5.Ram Disk:> cd dh0:source/c-net/TCP-Client-Server-Implementation-in-C-main/
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> ls
+README.md  client.c  client2.c  ip.c      server
+client     client2   ip         makefile  server.c
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> ip
+ip: file is not executable
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> gcc ip.c
+In file included from ip.c:5:
+/gg/include/arpa/inet.h:47: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:47: warning: its scope is only this definition or dec
+laration, which is probably not what you want.
+/gg/include/arpa/inet.h:48: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:48: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:50: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:52: warning: parameter has incomplete type
+ip.c: In function `main':
+ip.c:24: storage size of `ISocket' isn't known
+ip.c:26: warning: assignment from incompatible pointer type
+ip.c:29: `IExec' undeclared (first use in this function)
+ip.c:29: (Each undeclared identifier is reported only once
+ip.c:29: for each function it appears in.)
+ip.c:40: dereferencing pointer to incomplete type
+ip.c:42: dereferencing pointer to incomplete type
+ip.c:44: dereferencing pointer to incomplete type
+ip.c:45: `IFQ_Address' undeclared (first use in this function)
+ip.c:46: `TAG_DONE' undeclared (first use in this function)
+ip.c:49: `uint8' undeclared (first use in this function)
+ip.c:49: parse error before `addr'
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> gcc ip.c -lam
+iga
+In file included from ip.c:5:
+/gg/include/arpa/inet.h:47: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:47: warning: its scope is only this definition or dec
+laration, which is probably not what you want.
+/gg/include/arpa/inet.h:48: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:48: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:50: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:52: warning: parameter has incomplete type
+ip.c: In function `main':
+ip.c:24: storage size of `ISocket' isn't known
+ip.c:26: warning: assignment from incompatible pointer type
+ip.c:29: `IExec' undeclared (first use in this function)
+ip.c:29: (Each undeclared identifier is reported only once
+ip.c:29: for each function it appears in.)
+ip.c:40: dereferencing pointer to incomplete type
+ip.c:42: dereferencing pointer to incomplete type
+ip.c:44: dereferencing pointer to incomplete type
+ip.c:45: `IFQ_Address' undeclared (first use in this function)
+ip.c:46: `TAG_DONE' undeclared (first use in this function)
+ip.c:49: `uint8' undeclared (first use in this function)
+ip.c:49: parse error before `addr'
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> ls
+README.md  client.c  client2.c  ip.c      server
+client     client2   ip         makefile  server.c
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> make
+make: *** No rule to make target `paoloSDL.cpp', needed by `paoloSDL.o'.  Sto
+p.
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> make
+makefile:23: warning: overriding recipe for target `server'
+makefile:15: warning: ignoring old recipe for target `server'
+gcc -g -Wall -o server.out server.c
+In file included from server.c:5:
+/gg/include/arpa/inet.h:47: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:47: warning: its scope is only this definition or dec
+laration, which is probably not what you want.
+/gg/include/arpa/inet.h:48: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:48: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:50: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:52: warning: parameter has incomplete type
+gcc -g -Wall -o client.out client.c
+In file included from client.c:5:
+/gg/include/arpa/inet.h:47: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:47: warning: its scope is only this definition or dec
+laration, which is probably not what you want.
+/gg/include/arpa/inet.h:48: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:48: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:50: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:52: warning: parameter has incomplete type
+client.c: In function `main':
+client.c:24: warning: unused variable `n'
+client.c:22: warning: unused variable `addr_size'
+gcc -o server server.out -lamiga
+server.out(.text+0x208): multiple definition of `ix_get_variables'
+/gg/lib/crt0.o(.text+0x208): first defined here
+server.out(.text+0x4): multiple definition of `exec'
+/gg/lib/crt0.o(.text+0x4): first defined here
+server.out(.text+0x32c): multiple definition of `mcount'
+/gg/lib/crt0.o(.text+0x32c): first defined here
+server.out(.text+0x32c): multiple definition of `moncontrol'
+/gg/lib/crt0.o(.text+0x32c): first defined here
+server.out(.data+0x1d2): multiple definition of `__progname'
+/gg/lib/crt0.o(.data+0x1d2): first defined here
+server.out(.data+0x1d6): multiple definition of `ix_os'
+/gg/lib/crt0.o(.data+0x1d6): first defined here
+server.out(.data+0x0): multiple definition of `h_errno'
+/gg/lib/crt0.o(.data+0x0): first defined here
+server.out(.data+0x1c2): multiple definition of `ix_default_wb_window'
+/gg/lib/crt0.o(.data+0x1c2): first defined here
+server.out(.data+0x4): multiple definition of `_res'
+/gg/lib/crt0.o(.data+0x4): first defined here
+server.out(.data+0x1be): multiple definition of `_res_socket'
+/gg/lib/crt0.o(.data+0x1be): first defined here
+server.out(.data+0x1ce): multiple definition of `environ'
+/gg/lib/crt0.o(.data+0x1ce): first defined here
+server.out(.data+0x1c6): multiple definition of `errno'
+/gg/lib/crt0.o(.data+0x1c6): first defined here
+collect2: ld returned 1 exit status
+make: *** [all] Error 1
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> make
+makefile:23: warning: overriding recipe for target `server'
+makefile:15: warning: ignoring old recipe for target `server'
+gcc -g -Wall -o server.out server.c
+In file included from server.c:5:
+/gg/include/arpa/inet.h:47: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:47: warning: its scope is only this definition or dec
+laration, which is probably not what you want.
+/gg/include/arpa/inet.h:48: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:48: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:50: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:52: warning: parameter has incomplete type
+gcc -g -Wall -o client.out client.c
+In file included from client.c:5:
+/gg/include/arpa/inet.h:47: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:47: warning: its scope is only this definition or dec
+laration, which is probably not what you want.
+/gg/include/arpa/inet.h:48: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:48: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:50: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:52: warning: parameter has incomplete type
+client.c: In function `main':
+client.c:24: warning: unused variable `n'
+client.c:22: warning: unused variable `addr_size'
+gcc -o server server.out -lamiga
+server.out(.text+0x208): multiple definition of `ix_get_variables'
+/gg/lib/crt0.o(.text+0x208): first defined here
+server.out(.text+0x4): multiple definition of `exec'
+/gg/lib/crt0.o(.text+0x4): first defined here
+server.out(.text+0x32c): multiple definition of `mcount'
+/gg/lib/crt0.o(.text+0x32c): first defined here
+server.out(.text+0x32c): multiple definition of `moncontrol'
+/gg/lib/crt0.o(.text+0x32c): first defined here
+server.out(.data+0x1d2): multiple definition of `__progname'
+/gg/lib/crt0.o(.data+0x1d2): first defined here
+server.out(.data+0x1d6): multiple definition of `ix_os'
+/gg/lib/crt0.o(.data+0x1d6): first defined here
+server.out(.data+0x0): multiple definition of `h_errno'
+/gg/lib/crt0.o(.data+0x0): first defined here
+server.out(.data+0x1c2): multiple definition of `ix_default_wb_window'
+/gg/lib/crt0.o(.data+0x1c2): first defined here
+server.out(.data+0x4): multiple definition of `_res'
+/gg/lib/crt0.o(.data+0x4): first defined here
+server.out(.data+0x1be): multiple definition of `_res_socket'
+/gg/lib/crt0.o(.data+0x1be): first defined here
+server.out(.data+0x1ce): multiple definition of `environ'
+/gg/lib/crt0.o(.data+0x1ce): first defined here
+server.out(.data+0x1c6): multiple definition of `errno'
+/gg/lib/crt0.o(.data+0x1c6): first defined here
+collect2: ld returned 1 exit status
+make: *** [all] Error 1
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> ls -a
+.   README.md  client.c    client2    ip    makefile  server.out
+..  client     client.out  client2.c  ip.c  server.c
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> ls -l
+total 6336
+-rwx------   1 nobody   nogroup        39 Apr 25  2025 README.md
+-rwx------   1 nobody   nogroup     18568 Apr 25  2025 client
+-rwx------   1 nobody   nogroup      1135 Apr 25  2025 client.c
+-rwxr-xr-x   1 nobody   nogroup     24016 Dec 30 15:29 client.out
+-rwx------   1 nobody   nogroup     18572 Apr 25  2025 client2
+-rwx------   1 nobody   nogroup      1142 Apr 25  2025 client2.c
+-rw-r--r--   1 nobody   nogroup       393 Apr 25  2025 ip
+-rwx------   1 nobody   nogroup      1762 Apr 25  2025 ip.c
+-rwx------   1 nobody   nogroup       806 Dec 30 15:29 makefile
+-rwx------   1 nobody   nogroup      1593 Apr 25  2025 server.c
+-rwxr-xr-x   1 nobody   nogroup     24484 Dec 30 15:29 server.out
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> stormc
+stormc: Unknown command
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> sc
+sc: Unknown command
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> scc
+scc: Unknown command
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> scc
+scc: Unknown command
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> ssc
+ssc: Unknown command
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> stormc
+stormc: Unknown command
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> STORMCPP
+STORMCPP: Unknown command
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> smake
+smake: Unknown command
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> sasc
+sasc: Unknown command
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> sc
+sc: Unknown command
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> make
+makefile:23: warning: overriding recipe for target `server'
+makefile:15: warning: ignoring old recipe for target `server'
+gcc -g -Wall -o server.out server.c
+In file included from server.c:5:
+/gg/include/arpa/inet.h:47: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:47: warning: its scope is only this definition or dec
+laration, which is probably not what you want.
+/gg/include/arpa/inet.h:48: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:48: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:50: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:52: warning: parameter has incomplete type
+gcc -g -Wall -o client.out client.c
+In file included from client.c:5:
+/gg/include/arpa/inet.h:47: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:47: warning: its scope is only this definition or dec
+laration, which is probably not what you want.
+/gg/include/arpa/inet.h:48: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:48: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:50: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:52: warning: parameter has incomplete type
+client.c: In function `main':
+client.c:24: warning: unused variable `n'
+client.c:22: warning: unused variable `addr_size'
+gcc -o server server.out -lamiga
+server.out(.text+0x208): multiple definition of `ix_get_variables'
+/gg/lib/crt0.o(.text+0x208): first defined here
+server.out(.text+0x4): multiple definition of `exec'
+/gg/lib/crt0.o(.text+0x4): first defined here
+server.out(.text+0x32c): multiple definition of `mcount'
+/gg/lib/crt0.o(.text+0x32c): first defined here
+server.out(.text+0x32c): multiple definition of `moncontrol'
+/gg/lib/crt0.o(.text+0x32c): first defined here
+server.out(.data+0x1d2): multiple definition of `__progname'
+/gg/lib/crt0.o(.data+0x1d2): first defined here
+server.out(.data+0x1d6): multiple definition of `ix_os'
+/gg/lib/crt0.o(.data+0x1d6): first defined here
+server.out(.data+0x0): multiple definition of `h_errno'
+/gg/lib/crt0.o(.data+0x0): first defined here
+server.out(.data+0x1c2): multiple definition of `ix_default_wb_window'
+/gg/lib/crt0.o(.data+0x1c2): first defined here
+server.out(.data+0x4): multiple definition of `_res'
+/gg/lib/crt0.o(.data+0x4): first defined here
+server.out(.data+0x1be): multiple definition of `_res_socket'
+/gg/lib/crt0.o(.data+0x1be): first defined here
+server.out(.data+0x1ce): multiple definition of `environ'
+/gg/lib/crt0.o(.data+0x1ce): first defined here
+server.out(.data+0x1c6): multiple definition of `errno'
+/gg/lib/crt0.o(.data+0x1c6): first defined here
+collect2: ld returned 1 exit status
+make: *** [all] Error 1
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> make > make.l
+og
+makefile:23: warning: overriding recipe for target `server'
+makefile:15: warning: ignoring old recipe for target `server'
+In file included from server.c:5:
+/gg/include/arpa/inet.h:47: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:47: warning: its scope is only this definition or dec
+laration, which is probably not what you want.
+/gg/include/arpa/inet.h:48: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:48: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:50: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:52: warning: parameter has incomplete type
+In file included from client.c:5:
+/gg/include/arpa/inet.h:47: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:47: warning: its scope is only this definition or dec
+laration, which is probably not what you want.
+/gg/include/arpa/inet.h:48: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:48: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:50: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:52: warning: parameter has incomplete type
+client.c: In function `main':
+client.c:24: warning: unused variable `n'
+client.c:22: warning: unused variable `addr_size'
+server.out(.text+0x208): multiple definition of `ix_get_variables'
+/gg/lib/crt0.o(.text+0x208): first defined here
+server.out(.text+0x4): multiple definition of `exec'
+/gg/lib/crt0.o(.text+0x4): first defined here
+server.out(.text+0x32c): multiple definition of `mcount'
+/gg/lib/crt0.o(.text+0x32c): first defined here
+server.out(.text+0x32c): multiple definition of `moncontrol'
+/gg/lib/crt0.o(.text+0x32c): first defined here
+server.out(.data+0x1d2): multiple definition of `__progname'
+/gg/lib/crt0.o(.data+0x1d2): first defined here
+server.out(.data+0x1d6): multiple definition of `ix_os'
+/gg/lib/crt0.o(.data+0x1d6): first defined here
+server.out(.data+0x0): multiple definition of `h_errno'
+/gg/lib/crt0.o(.data+0x0): first defined here
+server.out(.data+0x1c2): multiple definition of `ix_default_wb_window'
+/gg/lib/crt0.o(.data+0x1c2): first defined here
+server.out(.data+0x4): multiple definition of `_res'
+/gg/lib/crt0.o(.data+0x4): first defined here
+server.out(.data+0x1be): multiple definition of `_res_socket'
+/gg/lib/crt0.o(.data+0x1be): first defined here
+server.out(.data+0x1ce): multiple definition of `environ'
+/gg/lib/crt0.o(.data+0x1ce): first defined here
+server.out(.data+0x1c6): multiple definition of `errno'
+/gg/lib/crt0.o(.data+0x1c6): first defined here
+collect2: ld returned 1 exit status
+make: *** [all] Error 1
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> make > make.l
+og
+makefile:23: warning: overriding recipe for target `server'
+makefile:15: warning: ignoring old recipe for target `server'
+In file included from server.c:5:
+/gg/include/arpa/inet.h:47: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:47: warning: its scope is only this definition or dec
+laration, which is probably not what you want.
+/gg/include/arpa/inet.h:48: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:48: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:50: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:52: warning: parameter has incomplete type
+In file included from client.c:5:
+/gg/include/arpa/inet.h:47: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:47: warning: its scope is only this definition or dec
+laration, which is probably not what you want.
+/gg/include/arpa/inet.h:48: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:48: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:50: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:52: warning: parameter has incomplete type
+client.c: In function `main':
+client.c:24: warning: unused variable `n'
+client.c:22: warning: unused variable `addr_size'
+server.out(.text+0x208): multiple definition of `ix_get_variables'
+/gg/lib/crt0.o(.text+0x208): first defined here
+server.out(.text+0x4): multiple definition of `exec'
+/gg/lib/crt0.o(.text+0x4): first defined here
+server.out(.text+0x32c): multiple definition of `mcount'
+/gg/lib/crt0.o(.text+0x32c): first defined here
+server.out(.text+0x32c): multiple definition of `moncontrol'
+/gg/lib/crt0.o(.text+0x32c): first defined here
+server.out(.data+0x1d2): multiple definition of `__progname'
+/gg/lib/crt0.o(.data+0x1d2): first defined here
+server.out(.data+0x1d6): multiple definition of `ix_os'
+/gg/lib/crt0.o(.data+0x1d6): first defined here
+server.out(.data+0x0): multiple definition of `h_errno'
+/gg/lib/crt0.o(.data+0x0): first defined here
+server.out(.data+0x1c2): multiple definition of `ix_default_wb_window'
+/gg/lib/crt0.o(.data+0x1c2): first defined here
+server.out(.data+0x4): multiple definition of `_res'
+/gg/lib/crt0.o(.data+0x4): first defined here
+server.out(.data+0x1be): multiple definition of `_res_socket'
+/gg/lib/crt0.o(.data+0x1be): first defined here
+server.out(.data+0x1ce): multiple definition of `environ'
+/gg/lib/crt0.o(.data+0x1ce): first defined here
+server.out(.data+0x1c6): multiple definition of `errno'
+/gg/lib/crt0.o(.data+0x1c6): first defined here
+collect2: ld returned 1 exit status
+make: *** [all] Error 1
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> make > make.l
+og 2>&1
+makefile:23: warning: overriding recipe for target `server'
+makefile:15: warning: ignoring old recipe for target `server'
+make: *** No rule to make target `2>&1'.  Stop.
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> make > make.l
+og 2>&1
+makefile:23: warning: overriding recipe for target `server'
+makefile:15: warning: ignoring old recipe for target `server'
+make: *** No rule to make target `2>&1'.  Stop.
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> make 2>&1
+makefile:23: warning: overriding recipe for target `server'
+makefile:15: warning: ignoring old recipe for target `server'
+make: *** No rule to make target `2>&1'.  Stop.
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> make >&1
+makefile:23: warning: overriding recipe for target `server'
+makefile:15: warning: ignoring old recipe for target `server'
+In file included from server.c:5:
+/gg/include/arpa/inet.h:47: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:47: warning: its scope is only this definition or dec
+laration, which is probably not what you want.
+/gg/include/arpa/inet.h:48: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:48: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:50: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:52: warning: parameter has incomplete type
+In file included from client.c:5:
+/gg/include/arpa/inet.h:47: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:47: warning: its scope is only this definition or dec
+laration, which is probably not what you want.
+/gg/include/arpa/inet.h:48: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:48: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:50: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:52: warning: parameter has incomplete type
+client.c: In function `main':
+client.c:24: warning: unused variable `n'
+client.c:22: warning: unused variable `addr_size'
+server.out(.text+0x208): multiple definition of `ix_get_variables'
+/gg/lib/crt0.o(.text+0x208): first defined here
+server.out(.text+0x4): multiple definition of `exec'
+/gg/lib/crt0.o(.text+0x4): first defined here
+server.out(.text+0x32c): multiple definition of `mcount'
+/gg/lib/crt0.o(.text+0x32c): first defined here
+server.out(.text+0x32c): multiple definition of `moncontrol'
+/gg/lib/crt0.o(.text+0x32c): first defined here
+server.out(.data+0x1d2): multiple definition of `__progname'
+/gg/lib/crt0.o(.data+0x1d2): first defined here
+server.out(.data+0x1d6): multiple definition of `ix_os'
+/gg/lib/crt0.o(.data+0x1d6): first defined here
+server.out(.data+0x0): multiple definition of `h_errno'
+/gg/lib/crt0.o(.data+0x0): first defined here
+server.out(.data+0x1c2): multiple definition of `ix_default_wb_window'
+/gg/lib/crt0.o(.data+0x1c2): first defined here
+server.out(.data+0x4): multiple definition of `_res'
+/gg/lib/crt0.o(.data+0x4): first defined here
+server.out(.data+0x1be): multiple definition of `_res_socket'
+/gg/lib/crt0.o(.data+0x1be): first defined here
+server.out(.data+0x1ce): multiple definition of `environ'
+/gg/lib/crt0.o(.data+0x1ce): first defined here
+server.out(.data+0x1c6): multiple definition of `errno'
+/gg/lib/crt0.o(.data+0x1c6): first defined here
+collect2: ld returned 1 exit status
+make: *** [all] Error 1
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> la
+la: Unknown command
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> ls
+&1         client    client.out  client2.c  ip.c      makefile  server.out
+README.md  client.c  client2     ip         make.log  server.c
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> make
+makefile:23: warning: overriding recipe for target `server'
+makefile:15: warning: ignoring old recipe for target `server'
+gcc -g -Wall -o server.out server.c
+In file included from server.c:5:
+/gg/include/arpa/inet.h:47: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:47: warning: its scope is only this definition or dec
+laration, which is probably not what you want.
+/gg/include/arpa/inet.h:48: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:48: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:50: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:52: warning: parameter has incomplete type
+gcc -g -Wall -o client.out client.c
+In file included from client.c:5:
+/gg/include/arpa/inet.h:47: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:47: warning: its scope is only this definition or dec
+laration, which is probably not what you want.
+/gg/include/arpa/inet.h:48: warning: `struct in_addr' declared inside paramet
+er list
+/gg/include/arpa/inet.h:48: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:50: warning: parameter has incomplete type
+/gg/include/arpa/inet.h:52: warning: parameter has incomplete type
+client.c: In function `main':
+client.c:24: warning: unused variable `n'
+client.c:22: warning: unused variable `addr_size'
+gcc -o server server.out -lamiga
+server.out(.text+0x208): multiple definition of `ix_get_variables'
+/gg/lib/crt0.o(.text+0x208): first defined here
+server.out(.text+0x4): multiple definition of `exec'
+/gg/lib/crt0.o(.text+0x4): first defined here
+server.out(.text+0x32c): multiple definition of `mcount'
+/gg/lib/crt0.o(.text+0x32c): first defined here
+server.out(.text+0x32c): multiple definition of `moncontrol'
+/gg/lib/crt0.o(.text+0x32c): first defined here
+server.out(.data+0x1d2): multiple definition of `__progname'
+/gg/lib/crt0.o(.data+0x1d2): first defined here
+server.out(.data+0x1d6): multiple definition of `ix_os'
+/gg/lib/crt0.o(.data+0x1d6): first defined here
+server.out(.data+0x0): multiple definition of `h_errno'
+/gg/lib/crt0.o(.data+0x0): first defined here
+server.out(.data+0x1c2): multiple definition of `ix_default_wb_window'
+/gg/lib/crt0.o(.data+0x1c2): first defined here
+server.out(.data+0x4): multiple definition of `_res'
+/gg/lib/crt0.o(.data+0x4): first defined here
+server.out(.data+0x1be): multiple definition of `_res_socket'
+/gg/lib/crt0.o(.data+0x1be): first defined here
+server.out(.data+0x1ce): multiple definition of `environ'
+/gg/lib/crt0.o(.data+0x1ce): first defined here
+server.out(.data+0x1c6): multiple definition of `errno'
+/gg/lib/crt0.o(.data+0x1c6): first defined here
+collect2: ld returned 1 exit status
+make: *** [all] Error 1
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> ls
+&1         client    client.out  client2.c  ip.c      makefile  server.out
+README.md  client.c  client2     ip         make.log  server.c
+5.Work:source/c-net/TCP-Client-Server-Implementation-in-C-main> 

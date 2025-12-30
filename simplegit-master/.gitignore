@@ -1,0 +1,11 @@
+.cproject
+.project
+.settings
+bin
+build
+build-amiga
+build-deps
+dist
+interim-openssl
+libssh2
+ReadMe.plain

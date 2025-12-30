@@ -1,0 +1,7 @@
+Run
+ $ make test
+in order to see what is left to do.
+
+As of January, 8th 2013, only six single tests out of 48 
+fail in the t0000-basic.sh test. Of course, this leaves
+an indefinitely number of other test suits that still fail.

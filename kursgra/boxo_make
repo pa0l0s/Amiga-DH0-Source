@@ -1,0 +1,1 @@
+vc boxo.c window.c timer.c input.c level.c tile.c game.c -o boxo -c99

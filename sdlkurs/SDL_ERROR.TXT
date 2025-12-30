@@ -1,0 +1,2 @@
+SDL_SetError: SDL not built with timer support
+SDL_SetError: Window mode is not supported

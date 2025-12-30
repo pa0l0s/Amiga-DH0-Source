@@ -1,0 +1,3 @@
+SDL_SetError: No video mode compatible with 320x240
+SDL_SetError: No video mode compatible with 320x240
+SDL_SetError: Couldn't open splash_rtg_240_8.bmp

@@ -1,0 +1,61 @@
+Short:        GCC based dev toolchain for AmigaOS 3.x
+Author:       GNU, Krystian Baclawski and others
+Uploader:     carsten.larsen@mail.com (Carsten Larsen)
+Type:         dev/gcc
+Version:      2017
+Requires:     Linux i386 or compatible
+Architecture: m68k-amigaos
+URL:          https://github.com/cahirwpz/amigaos-cross-toolchain
+
+
+ABOUT
+
+  GCC toolchain build from sources at Krystian Baclawski's github repository.
+
+
+DESCRIPTION
+
+  GCC development is a part of the GNU Project, aiming to improve the compiler
+  used in the GNU system including the GNU/Linux variant. The GCC development
+  effort uses an open development environment and supports many other platforms
+  in order to foster a world-class optimizing compiler, to attract a larger
+  team of developers, to ensure that GCC and the GNU system work on multiple
+  architectures and diverse environments, and to more thoroughly test and
+  extend the features of GCC (source: https://gcc.gnu.org/gccmission.html).
+
+
+CONTENT
+
+  gcc 2.95.3
+  g++ 2.95.3
+  libstdc++ 2.10
+  binutils 2.9.1 (GNU assembler, linker, etc.)
+  libnix 2.2 (standard ANSI/C library replacement for AmigaOS)
+  libm 5.4 (provides math library implementation for non-FPU Amigas)
+  vbcc toolchain including vasm 1.7h, vlink 0.15d and C standard library
+  IRA: a 68k disassembler/reassembler
+  vda68k: portable M68k disassembler for 68000-68060, 68851, 68881, 68882
+
+INSTALL
+
+  This binary distribution needs to be installed in /opt/m68k-amigaos.
+  
+  # cd /opt && sudo tar -zxf ~/Downloads/m68k-amigaos-gcc.tar.gz
+  # cd /usr/local/bin && sudo ln -s /opt/m68k-amigaos/bin/* .
+  
+  To install in another location the toolchain requires recompilation. Build
+  instructions can be found in the source repository.
+
+EXAMPLE
+
+  Edit and save the text to hello.c:
+  
+  #include <stdio.h>
+  int main (void)
+  {
+    printf ("Hello, world!n");
+    return 0;
+  }
+
+  Compile with:
+  # m68k-amigaos-gcc -noixemul hello.c -o Hello

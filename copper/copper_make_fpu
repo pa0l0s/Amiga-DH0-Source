@@ -1,0 +1,1 @@
+vc sineCopper.c src/colorArrayUtil.c src/colorUtil.c src/gfxUtil.c src/mathArrayUtil.c src/mathUtil.c src/scGeo.c -o sc -c99 -lauto -lamiga -Ivincludeos3: -Iinclude -fpu=68040

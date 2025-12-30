@@ -1,0 +1,272 @@
+{
+  "Version": 2,
+  "Particles": [
+    {
+      "Name": "spark",
+      "Pic": {
+        "Type": "Normal",
+        "Pic": "spark"
+      }
+    },
+    {
+      "Name": "spark_blue",
+      "Pic": {
+        "Type": "Normal",
+        "Pic": "spark_classic",
+        "Mask": "00ffff"
+      },
+      "Range": 2
+    },
+    {
+      "Name": "spark_red",
+      "Pic": {
+        "Type": "Normal",
+        "Pic": "spark_classic",
+        "Mask": "ff0000"
+      },
+      "Range": 2
+    },
+    {
+      "Name": "spark_green",
+      "Pic": {
+        "Type": "Normal",
+        "Pic": "spark_classic",
+        "Mask": "00ff00"
+      },
+      "Range": 2
+    },
+    {
+      "Name": "spark_yellow",
+      "Pic": {
+        "Type": "Normal",
+        "Pic": "spark_classic",
+        "Mask": "ffff00"
+      },
+      "Range": 2
+    },
+    {
+      "Name": "boom",
+      "Pic": {
+        "Type": "Animated",
+        "Sprites": "boom",
+        "TicksPerFrame": 1
+      },
+      "Range": 7
+    },
+    {
+      "Name": "muzzle_flash_default",
+      "Pic": {
+        "Type": "Directional",
+        "Sprites": "muzzle_flash",
+        "Mask": "ffff80"
+      },
+      "Range": 3
+    },
+    {
+      "Name": "muzzle_flash_mg",
+      "Pic": {
+        "Type": "Directional",
+        "Sprites": "muzzle_flash",
+        "Mask": "ffff80"
+      },
+      "Range": 2
+    },
+    {
+      "Name": "muzzle_flash_flamer",
+      "Pic": {
+        "Type": "Directional",
+        "Sprites": "muzzle_flash",
+        "Mask": "ff0000"
+      },
+      "Range": 3
+    },
+    {
+      "Name": "muzzle_flash_shotgun",
+      "Pic": {
+        "Type": "Directional",
+        "Sprites": "muzzle_flash_big",
+        "Mask": "ffff80"
+      },
+      "Range": 7
+    },
+    {
+      "Name": "muzzle_flash_powergun",
+      "Pic": {
+        "Type": "Directional",
+        "Sprites": "muzzle_flash",
+        "Mask": "ff0000"
+      },
+      "Range": 5
+    },
+    {
+      "Name": "muzzle_flash_petrifier",
+      "Pic": {
+        "Type": "Directional",
+        "Sprites": "muzzle_flash_big"
+      },
+      "Range": 10
+    },
+    {
+      "Name": "muzzle_flash_browny",
+      "Pic": {
+        "Type": "Directional",
+        "Sprites": "muzzle_flash",
+        "Mask": "00ffff"
+      },
+      "Range": 5
+    },
+    {
+      "Name": "muzzle_flash_gasgun",
+      "Pic": {
+        "Type": "Directional",
+        "Sprites": "muzzle_flash",
+        "Mask": "00ff00"
+      },
+      "Range": 3
+    },
+    {
+      "Name": "muzzle_flash_pulse",
+      "Pic": {
+        "Type": "Directional",
+        "Sprites": "muzzle_flash_big",
+        "Mask": "00ffff"
+      },
+      "Range": 2
+    },
+    {
+      "Name": "muzzle_flash_heatseeker",
+      "Pic": {
+        "Type": "Directional",
+        "Sprites": "muzzle_flash_big",
+        "Mask": "ff0000"
+      },
+      "Range": 5
+    },
+    {
+      "Name": "brass",
+      "Pic": {
+        "Type": "Directional",
+        "Sprites": "brass"
+      },
+      "RangeLow": 10000,
+      "RangeHigh": 11000,
+      "GravityFactor": 1,
+      "HitsWalls": true
+    },
+    {
+      "Name": "brass_big",
+      "Pic": {
+        "Type": "Directional",
+        "Sprites": "brass_big"
+      },
+      "RangeLow": 10000,
+      "RangeHigh": 11000,
+      "GravityFactor": 1,
+      "HitsWalls": true
+    },
+    {
+      "Name": "shotshell",
+      "Pic": {
+        "Type": "Directional",
+        "Sprites": "shotshell"
+      },
+      "RangeLow": 10000,
+      "RangeHigh": 11000,
+      "GravityFactor": 1,
+      "HitsWalls": true
+    },
+    {
+      "Name": "smoke",
+      "Pic": {
+        "Type": "Animated",
+        "Sprites": "smoke"
+      },
+      "Range": 29,
+      "TicksPerFrame": 6
+    },
+    {
+      "Name": "explosion_small",
+      "Pic": {
+        "Type": "Animated",
+        "Sprites": "explosion_small",
+        "TicksPerFrame": 4
+      },
+      "Range": 7
+    },
+    {
+      "Name": "blood1",
+      "Pic": {
+        "Type": "Animated",
+        "Sprites": "blood1"
+      },
+      "RangeLow": 10000,
+      "RangeHigh": 11000,
+      "GravityFactor": 1,
+      "HitsWalls": true,
+      "Bounces": false,
+      "WallBounces": false
+    },
+    {
+      "Name": "blood2",
+      "Pic": {
+        "Type": "Animated",
+        "Sprites": "blood2"
+      },
+      "RangeLow": 10000,
+      "RangeHigh": 11000,
+      "GravityFactor": 1,
+      "HitsWalls": true,
+      "Bounces": false,
+      "WallBounces": false
+    },
+    {
+      "Name": "blood3",
+      "Pic": {
+        "Type": "Animated",
+        "Sprites": "blood3"
+      },
+      "RangeLow": 10000,
+      "RangeHigh": 11000,
+      "GravityFactor": 1,
+      "HitsWalls": true,
+      "Bounces": false,
+      "WallBounces": false
+    },
+    {
+      "Name": "ammo_text",
+      "Type": "Text",
+      "TextMask": "ffff00",
+      "Range": 100,
+      "GravityFactor": 2,
+      "Bounces": true
+    },
+    {
+      "Name": "key_text",
+      "Type": "Text",
+      "Range": 140,
+      "GravityFactor": 2,
+      "Bounces": true
+    },
+    {
+      "Name": "locked_text",
+      "Type": "Text",
+      "TextMask": "ff0000",
+      "Range": 40,
+      "GravityFactor": 0
+    },
+    {
+      "Name": "heal_text",
+      "Type": "Text",
+      "TextMask": "00ff00",
+      "Range": 40,
+      "GravityFactor": 0
+    },
+    {
+      "Name": "damage_text",
+      "Type": "Text",
+      "TextMask": "ff0000",
+      "Range": 40,
+      "GravityFactor": 0
+    }
+  ]
+}

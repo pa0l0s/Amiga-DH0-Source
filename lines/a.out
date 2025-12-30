@@ -1,0 +1,144 @@
+Sections:
+section CODE (attr=<acrx> align=4):
+       0: opts: cpu types: m68000
+       0: opts: fpu id 1 (f2xx)
+       0: opts: small data is disabled
+       0: opts: optimizations enabled
+       0: opts: opt generic (1)
+       0: opts: opt movem (0)
+       0: opts: opt pea (0)
+       0: opts: opt clr (0)
+       0: opts: opt st (0)
+       0: opts: opt lsl (0)
+       0: opts: opt mul (0)
+       0: opts: opt div (0)
+       0: opts: opt float const (1)
+       0: opts: opt branch to jump (0)
+       0: opts: opt jump to longbranch (0)
+       0: opts: opt pc-relative (1)
+       0: opts: opt branch (1)
+       0: opts: opt displacement (1)
+       0: opts: opt absolute (1)
+       0: opts: opt moveq (1)
+       0: opts: opt quick (1)
+       0: opts: opt branch to nop (1)
+       0: opts: opt base disp (1)
+       0: opts: opt outer disp (1)
+       0: opts: opt adda/subq to lea (1)
+       0: opts: opt lea to addq/subq (1)
+       0: opts: opt immediate areg (1)
+       0: opts: opt for speed (0)
+       0: opts: opt small code (0)
+       0: opts: opt small data (0)
+       0: opts: warn about optimizations (0)
+       0: opts: PIC check (0)
+       0: opts: type and range checks (1)
+       0: opts: hide all warnings (0)
+       0: space(0,fill=4e 71)
+       0: symbol: _main LAB (0x0) UNUSED EXPORT sec=CODE 
+       0: data(4): 48 e7 30 02 
+       4: data(2): 70 00 
+       6: data(4): 43 fa 00 5c 
+       a: data(6): 2c 79 00 00 00 00 rabs(2,0-31,0xffffffff,0x0,_SysBase IMP EXPORT REF ) 
+      10: data(4): 4e ae fd d8 
+      14: data(2): 20 40 
+      16: data(6): 23 c8 00 00 00 00 rabs(2,0-31,0xffffffff,0x0,_DOSBase LAB (0x0) EXPORT REF sec=BSS ) 
+      1c: data(2): 67 2e 
+      1e: data(2): 76 0e 
+      20: data(6): 24 3c 00 00 00 54 rabs(2,0-31,0xffffffff,0x54,l6 LAB (0x54) REF sec=CODE ) 
+      26: data(6): 2c 79 00 00 00 00 rabs(2,0-31,0xffffffff,0x0,_DOSBase LAB (0x0) EXPORT REF sec=BSS ) 
+      2c: data(4): 4e ae ff c4 
+      30: data(2): 22 00 
+      32: data(6): 2c 79 00 00 00 00 rabs(2,0-31,0xffffffff,0x0,_DOSBase LAB (0x0) EXPORT REF sec=BSS ) 
+      38: data(4): 4e ae ff d0 
+      3c: data(6): 22 79 00 00 00 00 rabs(2,0-31,0xffffffff,0x0,_DOSBase LAB (0x0) EXPORT REF sec=BSS ) 
+      42: data(6): 2c 79 00 00 00 00 rabs(2,0-31,0xffffffff,0x0,_SysBase IMP EXPORT REF ) 
+      48: data(4): 4e ae fe 62 
+      4c: symbol: l4 LAB (0x4c) sec=CODE 
+      4c: data(2): 70 00 
+      4e: symbol: l1 LAB (0x4e) UNUSED sec=CODE 
+      4e: data(4): 4c df 40 0c 
+      52: data(2): 4e 75 
+      54: space(0,fill=4e 71)
+      54: symbol: l6 LAB (0x54) REF sec=CODE 
+      54: data(1): 48 
+      55: data(1): 65 
+      56: data(1): 6c 
+      57: data(1): 6c 
+      58: data(1): 6f 
+      59: data(1): 20 
+      5a: data(1): 77 
+      5b: data(1): 6f 
+      5c: data(1): 72 
+      5d: data(1): 6c 
+      5e: data(1): 64 
+      5f: data(1): 21 
+      60: data(1): 0a 
+      61: data(1): 00 
+      64: space(0,fill=4e 71)
+      64: symbol: l5 LAB (0x64) sec=CODE 
+      64: data(1): 64 
+      65: data(1): 6f 
+      66: data(1): 73 
+      67: data(1): 2e 
+      68: data(1): 6c 
+      69: data(1): 69 
+      6a: data(1): 62 
+      6b: data(1): 72 
+      6c: data(1): 61 
+      6d: data(1): 72 
+      6e: data(1): 79 
+      6f: data(1): 00 
+section BSS (attr=<aurw> align=4):
+       0: opts: cpu types: m68000
+       0: opts: fpu id 1 (f2xx)
+       0: opts: small data is disabled
+       0: opts: optimizations enabled
+       0: opts: opt generic (1)
+       0: opts: opt movem (0)
+       0: opts: opt pea (0)
+       0: opts: opt clr (0)
+       0: opts: opt st (0)
+       0: opts: opt lsl (0)
+       0: opts: opt mul (0)
+       0: opts: opt div (0)
+       0: opts: opt float const (1)
+       0: opts: opt branch to jump (0)
+       0: opts: opt jump to longbranch (0)
+       0: opts: opt pc-relative (1)
+       0: opts: opt branch (1)
+       0: opts: opt displacement (1)
+       0: opts: opt absolute (1)
+       0: opts: opt moveq (1)
+       0: opts: opt quick (1)
+       0: opts: opt branch to nop (1)
+       0: opts: opt base disp (1)
+       0: opts: opt outer disp (1)
+       0: opts: opt adda/subq to lea (1)
+       0: opts: opt lea to addq/subq (1)
+       0: opts: opt immediate areg (1)
+       0: opts: opt for speed (0)
+       0: opts: opt small code (0)
+       0: opts: opt small data (0)
+       0: opts: warn about optimizations (0)
+       0: opts: PIC check (0)
+       0: opts: type and range checks (1)
+       0: opts: hide all warnings (0)
+       0: space(0,fill=00)
+       0: symbol: _DOSBase LAB (0x0) EXPORT REF sec=BSS 
+       0: space(4,fill=00)
+Symbols:
+l9 EXPR(12=0xc) UNUSED EQU 
+l1 LAB (0x4e) UNUSED sec=CODE 
+l6 LAB (0x54) REF sec=CODE 
+l4 LAB (0x4c) sec=CODE 
+_DOSBase LAB (0x0) EXPORT REF sec=BSS 
+_SysBase IMP EXPORT REF 
+l5 LAB (0x64) sec=CODE 
+l7 EXPR(16396=0x400c) EQU REGL 
+_main LAB (0x0) UNUSED EXPORT sec=CODE 
+__LINE__ EXPR(69=0x45) INTERNAL 
+__FO EXPR(0=0x0) INTERNAL 
+__RS EXPR(0=0x0) INTERNAL 
+REPTN EXPR(-1=0xffffffff) INTERNAL 
+__VASM EXPR(1=0x1) INTERNAL 

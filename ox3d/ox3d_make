@@ -1,0 +1,1 @@
+vc ox3d.c -o ox3d -fpu=68040

@@ -1,0 +1,3 @@
+Error 19: T:t_4_0.o: Global symbol _DOSBase from t_4_0.o is already defined in startup.o.
+vlink failed returncode 20
+vlink -bamigahunk -x -Bstatic -Cvbcc -nostdlib -mrel vlibos3:startup.o "T:t_4_0.o"   -s -Rshort -Lvlibos3: -lvc -o a.out failed

@@ -1,0 +1,2 @@
+SDL_SetError: Couldn't open aw
+SDL_SetError: Couldn't open aw

@@ -1,0 +1,1 @@
+SDL_SetError: Window mode is not supported

@@ -1,0 +1,1 @@
+vc engine.c -o engine -c99 -lauto -lamiga -fpu=68040

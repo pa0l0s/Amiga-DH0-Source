@@ -1,0 +1,2 @@
+
+actors.o ai.o automap.o cdogs.o defs.o draw.o events.o files.o game.o gamedata.o grafx.o hiscores.o input.o joystick.o keyboard.o mainmenu.o map.o menu.o mission.o objs.o password.o pics.o prep.o sounds.o sprcomp.o text.o triggers.o

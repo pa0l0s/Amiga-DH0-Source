@@ -1,0 +1,128 @@
+vc -o pierwszysdl pierwszysdl.o SYS:SDL/bin/SDL_AGA_040.a -ISYS:SDL/include -c99 -amiga -lauto -fpu=68040 
+SDL_AGA_040.a(SDL_systimer.o): In "_SDL_Delay":
+Error 21: SDL_AGA_040.a(SDL_systimer.o) (.text+0x2d6): Reference to undefined symbol _Delay.
+SDL_AGA_040.a(SDL_thread.o): In "_SDL_CreateThread":
+Error 21: SDL_AGA_040.a(SDL_thread.o) (.text+0x15a): Reference to undefined symbol _bzero.
+Error 21: SDL_AGA_040.a(SDL_thread.o) (.text+0x24c): Reference to undefined symbol _bcopy.
+SDL_AGA_040.a(SDL_systhread.o): In "_SDL_SYS_CreateThread":
+Error 21: SDL_AGA_040.a(SDL_systhread.o) (.text+0x182): Reference to undefined symbol _bcopy.
+SDL_AGA_040.a(SDL_string.o): In "_SDL_strlcpy":
+Error 21: SDL_AGA_040.a(SDL_string.o) (.text+0x96): Reference to undefined symbol _bcopy.
+SDL_AGA_040.a(SDL_string.o): In "_SDL_strupr":
+Error 21: SDL_AGA_040.a(SDL_string.o) (.text+0x15a): Reference to undefined symbol __ctype_.
+SDL_AGA_040.a(SDL_string.o): In "_SDL_strlwr":
+Error 21: SDL_AGA_040.a(SDL_string.o) (.text+0x198): Reference to undefined symbol __ctype_.
+SDL_AGA_040.a(SDL_string.o): In "_SDL_strtoul":
+Error 21: SDL_AGA_040.a(SDL_string.o) (.text+0x2ce): Reference to undefined symbol __ctype_.
+Error 21: SDL_AGA_040.a(SDL_string.o) (.text+0x356): Reference to undefined symbol __ctype_.
+SDL_AGA_040.a(SDL_string.o): In "_SDL_lltoa":
+Error 21: SDL_AGA_040.a(SDL_string.o) (.text+0x3c2): Reference to undefined symbol ___moddi3.
+Error 21: SDL_AGA_040.a(SDL_string.o) (.text+0x3cc): Reference to undefined symbol ___divdi3.
+SDL_AGA_040.a(SDL_string.o): In "_SDL_ulltoa":
+Error 21: SDL_AGA_040.a(SDL_string.o) (.text+0x466): Reference to undefined symbol ___umoddi3.
+Error 21: SDL_AGA_040.a(SDL_string.o) (.text+0x470): Reference to undefined symbol ___udivdi3.
+SDL_AGA_040.a(SDL_string.o): In "_SDL_strtoll":
+Error 21: SDL_AGA_040.a(SDL_string.o) (.text+0x544): Reference to undefined symbol __ctype_.
+Error 21: SDL_AGA_040.a(SDL_string.o) (.text+0x63e): Reference to undefined symbol __ctype_.
+SDL_AGA_040.a(SDL_string.o): In "_SDL_strtoull":
+Error 21: SDL_AGA_040.a(SDL_string.o) (.text+0x70e): Reference to undefined symbol __ctype_.
+Error 21: SDL_AGA_040.a(SDL_string.o) (.text+0x7f8): Reference to undefined symbol __ctype_.
+SDL_AGA_040.a(SDL_string.o): In "_SDL_strncasecmp":
+Error 21: SDL_AGA_040.a(SDL_string.o) (.text+0x886): Reference to undefined symbol __ctype_.
+SDL_AGA_040.a(SDL_video.o): In "_SDL_SetPalette":
+Error 21: SDL_AGA_040.a(SDL_video.o) (.text+0x53e): Reference to undefined symbol _bcopy.
+Error 21: SDL_AGA_040.a(SDL_video.o) (.text+0x5ba): Reference to undefined symbol _bcopy.
+Error 21: SDL_AGA_040.a(SDL_video.o) (.text+0x61c): Reference to undefined symbol _bcopy.
+SDL_AGA_040.a(SDL_video.o): In "_SDL_WM_SetCaption":
+Error 21: SDL_AGA_040.a(SDL_video.o) (.text+0x6d0): Reference to undefined symbol _strdup.
+Error 21: SDL_AGA_040.a(SDL_video.o) (.text+0x6e8): Reference to undefined symbol _strdup.
+Error 21: SDL_AGA_040.a(SDL_video.o) (.text+0x718): Reference to undefined symbol _strdup.
+Error 21: SDL_AGA_040.a(SDL_video.o) (.text+0x730): Reference to undefined symbol _strdup.
+SDL_AGA_040.a(SDL_video.o): In "_SDL_VideoInit":
+Error 21: SDL_AGA_040.a(SDL_video.o) (.text+0xdb6): Reference to undefined symbol _strcasecmp.
+SDL_AGA_040.a(SDL_amiga_video_AGA.o): In "_c2p8_reloc_stub":
+Error 21: SDL_AGA_040.a(SDL_amiga_video_AGA.o) (.text+0x44): Reference to undefined symbol _c2p8_reloc.
+Error 21: SDL_AGA_040.a(SDL_amiga_video_AGA.o) (.text+0x1d2): Reference to undefined symbol _c2p8_deinit.
+Error 21: SDL_AGA_040.a(SDL_amiga_video_AGA.o) (.text+0x1e8): Reference to undefined symbol _c2p8_deinit.
+Error 21: SDL_AGA_040.a(SDL_amiga_video_AGA.o) (.text+0x7c6): Reference to undefined symbol _bzero.
+Error 21: SDL_AGA_040.a(SDL_amiga_video_AGA.o) (.text+0x9b0): Reference to undefined symbol _c2p8.
+SDL_AGA_040.a(SDL_amiga_video_AGA.o): In "_AGA_UpdateRects":
+Error 21: SDL_AGA_040.a(SDL_amiga_video_AGA.o) (.text+0xaa4): Reference to undefined symbol _c2p1x1_8_c5_bm.
+Error 21: SDL_AGA_040.a(SDL_amiga_video_AGA.o) (.text+0xae6): Reference to undefined symbol _c2p1x1_8_c5_bm.
+SDL_AGA_040.a(SDL_amiga_video_AGA.o): In "_AGA_SetColors":
+Error 21: SDL_AGA_040.a(SDL_amiga_video_AGA.o) (.text+0xb22): Reference to undefined symbol _bcopy.
+SDL_AGA_040.a(SDL_amiga_video_AGA.o): In "_AGA_CreateDevice":
+Error 21: SDL_AGA_040.a(SDL_amiga_video_AGA.o) (.text+0xc72): Reference to undefined symbol _bzero.
+SDL_AGA_040.a(SDL_amiga_events.o): In "_TranslateKey":
+Error 21: SDL_AGA_040.a(SDL_amiga_events.o) (.text+0x146): Reference to undefined symbol _MapRawKey.
+SDL_AGA_040.a(SDL_amiga_events.o): In "_amiga_PumpEvents":
+Error 21: SDL_AGA_040.a(SDL_amiga_events.o) (.text+0x1aa): Reference to undefined symbol _GetMsg.
+Error 21: SDL_AGA_040.a(SDL_amiga_events.o) (.text+0x1f6): Reference to undefined symbol _ReplyMsg.
+SDL_AGA_040.a(SDL_amiga_mouse.o): In "_amiga_ShowWMCursor":
+Error 21: SDL_AGA_040.a(SDL_amiga_mouse.o) (.text+0x5c): Reference to undefined symbol _ClearPointer.
+Error 21: SDL_AGA_040.a(SDL_amiga_mouse.o) (.text+0x7e): Reference to undefined symbol _SetPointer.
+SDL_AGA_040.a(SDL_amiga_mouse.o): In "_amiga_WarpWMCursor":
+Error 21: SDL_AGA_040.a(SDL_amiga_mouse.o) (.text+0xd0): Reference to undefined symbol _AddIEvents.
+SDL_AGA_040.a(SDL_keyboard.o): In "_SDL_PrivateKeyboard":
+Error 21: SDL_AGA_040.a(SDL_keyboard.o) (.text+0x1f0): Reference to undefined symbol _bcopy.
+SDL_AGA_040.a(SDL_keyboard.o): In "_SDL_KeyboardInit":
+Error 21: SDL_AGA_040.a(SDL_keyboard.o) (.text+0xac8): Reference to undefined symbol _bzero.
+SDL_AGA_040.a(SDL_getenv.o): In "_SDL_putenv":
+Error 21: SDL_AGA_040.a(SDL_getenv.o) (.text+0x38): Reference to undefined symbol _strdup.
+SDL_AGA_040.a(SDL_events.o): In "_SDL_PeepEvents":
+Error 21: SDL_AGA_040.a(SDL_events.o) (.text+0x3a0): Reference to undefined symbol _bcopy.
+SDL_AGA_040.a(SDL_audio.o): In "_SDL_RunAudio":
+Error 21: SDL_AGA_040.a(SDL_audio.o) (.text+0x6c2): Reference to undefined symbol _SetTaskPri.
+Error 21: SDL_AGA_040.a(SDL_audio.o) (.text+0x81c): Reference to undefined symbol _bcopy.
+Error 21: SDL_AGA_040.a(SDL_audio.o) (.text+0x83e): Reference to undefined symbol _bcopy.
+SDL_AGA_040.a(SDL_audio.o): In "_SDL_AudioInit":
+Error 21: SDL_AGA_040.a(SDL_audio.o) (.text+0x978): Reference to undefined symbol _strcasecmp.
+SDL_AGA_040.a(SDL_ahiaudio.o): In "_AHI_CreateDevice":
+Error 21: SDL_AGA_040.a(SDL_ahiaudio.o) (.text+0x1a4): Reference to undefined symbol _bzero.
+SDL_AGA_040.a(SDL_pixels.o): In "_SDL_AllocFormat":
+Error 21: SDL_AGA_040.a(SDL_pixels.o) (.text+0x51e): Reference to undefined symbol _bzero.
+SDL_AGA_040.a(SDL_pixels.o): In "_SDL_MapSurface":
+Error 21: SDL_AGA_040.a(SDL_pixels.o) (.text+0xe60): Reference to undefined symbol _bzero.
+SDL_AGA_040.a(SDL_RLEaccel.o): In "_SDL_RLEBlit":
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0x49a): Reference to undefined symbol _bcopy.
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0x8c2): Reference to undefined symbol _bcopy.
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0xcae): Reference to undefined symbol _bcopy.
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0x1b5e): Reference to undefined symbol _bcopy.
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0x1bf2): Reference to undefined symbol _bcopy.
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0x1cb4): Reference to undefined symbol _bcopy.
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0x1d2a): Reference to undefined symbol _bcopy.
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0x1da0): Reference to undefined symbol _bcopy.
+SDL_AGA_040.a(SDL_RLEaccel.o): In "_SDL_RLEAlphaBlit":
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0x29be): Reference to undefined symbol _bcopy.
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0x2b0a): Reference to undefined symbol _bcopy.
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0x2c06): Reference to undefined symbol _bcopy.
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0x2c86): Reference to undefined symbol _bcopy.
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0x2e52): Reference to undefined symbol _bcopy.
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0x2f30): Reference to undefined symbol _bcopy.
+SDL_AGA_040.a(SDL_RLEaccel.o): In "_SDL_UnRLESurface":
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0x35e0): Reference to undefined symbol _bzero.
+SDL_AGA_040.a(SDL_RLEaccel.o): In "_SDL_RLESurface":
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0x3920): Reference to undefined symbol _bcopy.
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0x3966): Reference to undefined symbol _bcopy.
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0x3b74): Reference to undefined symbol _bcopy.
+Error 21: SDL_AGA_040.a(SDL_RLEaccel.o) (.text+0x3ba8): Reference to undefined symbol _bcopy.
+SDL_AGA_040.a(SDL_blit.o): In "_SDL_BlitCopy":
+Error 21: SDL_AGA_040.a(SDL_blit.o) (.text+0x12a): Reference to undefined symbol _bcopy.
+SDL_AGA_040.a(SDL_blit_0.o): In "_BlitBto3Key":
+Error 21: SDL_AGA_040.a(SDL_blit_0.o) (.text+0x498): Reference to undefined symbol _bcopy.
+SDL_AGA_040.a(SDL_surface.o): In "_SDL_FillRect":
+Error 21: SDL_AGA_040.a(SDL_surface.o) (.text+0xae8): Reference to undefined symbol _bcopy.
+SDL_AGA_040.a(SDL_surface.o): In "_SDL_CreateRGBSurface":
+Error 21: SDL_AGA_040.a(SDL_surface.o) (.text+0xe54): Reference to undefined symbol _bzero.
+SDL_AGA_040.a(SDL_surface.o): In "_SDL_ConvertSurface":
+Error 21: SDL_AGA_040.a(SDL_surface.o) (.text+0x1116): Reference to undefined symbol _bcopy.
+SDL_AGA_040.a(SDL_cursor.o): In "_SDL_DrawCursorNoLock":
+Error 21: SDL_AGA_040.a(SDL_cursor.o) (.text+0x254): Reference to undefined symbol _bcopy.
+SDL_AGA_040.a(SDL_cursor.o): In "_SDL_EraseCursorNoLock":
+Error 21: SDL_AGA_040.a(SDL_cursor.o) (.text+0x972): Reference to undefined symbol _bcopy.
+SDL_AGA_040.a(SDL_cursor.o): In "_SDL_CreateCursor":
+Error 21: SDL_AGA_040.a(SDL_cursor.o) (.text+0xfae): Reference to undefined symbol _bzero.
+SDL_AGA_040.a(SDL_cursor.o): In "_SDL_ResetCursor":
+Error 21: SDL_AGA_040.a(SDL_cursor.o) (.text+0x10e0): Reference to undefined symbol _bzero.
+vlink failed returncode 20
+vlink -bamigahunk -x -Bstatic -Cvbcc -nostdlib -mrel vlibos3:startup.o "pierwszysdl.o" "SYS:SDL/bin/SDL_AGA_040.a"   -lauto -s -Rshort -Lvlibos3: -lvc -o pierwszysdl failed

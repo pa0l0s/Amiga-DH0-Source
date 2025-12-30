@@ -1,0 +1,18 @@
+vc -c -o obj/cube.o src/cube.c -c99 -IWork:vbcc/targets/m68k-amigaos/include/ -IWork:vbcc/include_h/ -fpu=68040
+>   calculateFrame(Faces);
+warning 161 in line 60 of "src/cube.c": implicit declaration of function <calculateFrame>
+>		DrawPolygonObject((double *)Faces[i],4);
+warning 161 in line 76 of "src/cube.c": implicit declaration of function <DrawPolygonObject>
+>		PrintCoordinates((double *)Faces[i],4,8+ 40*i);
+warning 161 in line 79 of "src/cube.c": implicit declaration of function <PrintCoordinates>
+>{
+warning 68 in line 119 of "src/cube.c": redeclaration of var <DrawPolygonObject> with new type
+>		y 
+warning 54 in line 128 of "src/cube.c": ; expected
+>		if 
+warning 54 in line 130 of "src/cube.c": ; expected
+>{
+warning 68 in line 143 of "src/cube.c": redeclaration of var <PrintCoordinates> with new type
+>{
+warning 68 in line 164 of "src/cube.c": redeclaration of var <calculateFrame> with new type
+vc -o 3dto2d obj/3dto2d.o obj/main.o obj/window.o obj/timer.o obj/input.o obj/cube.o obj/engine.o -c99 -IWork:vbcc/targets/m68k-amigaos/include/ -IWork:vbcc/include_h/ -fpu=68040 -LC:/vbcc/targets/m68k-amigaos/lib -lvc -lamiga

@@ -1,0 +1,1 @@
+vc sineCopper.c -o sc -c99 -lauto -lamiga

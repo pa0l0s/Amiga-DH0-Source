@@ -1,0 +1,75 @@
+#
+# This is a all in one makefile for building SimpleGit for AmigaOS
+#
+
+####################################################
+
+.PHONY: all
+all: sgit
+
+####################################################
+
+include makefile.aos4.common
+
+####################################################
+# The main executable
+.PHONY: sgit
+sgit: libgit2 pthread
+	# sgit
+	mkdir -p build-amiga/
+	echo "#define SIMPLEGIT_REVISION_STRING \"$(COMMITS)\"" >build-amiga/sgit-version.h
+	echo "#define SIMPLEGIT_DATE_STRING \"$(shell date +%d.%m.%Y)\"" >>build-amiga/sgit-version.h
+	cd build-amiga/ && cmake ../CMake\
+		-DCMAKE_SYSTEM_NAME=AmigaOS\
+		-DCMAKE_C_COMPILER=$(COMPILER)\
+		-DCMAKE_C_FLAGS="\
+			-DUSE_SSL -I$(shell readlink -f interim-openssl/openssl/repo/include/)\
+			-I$(shell readlink -f build-deps/Local/common/include)\
+			-imacros $(shell readlink -f .)/build-amiga/sgit-version.h\
+			-fstack-usage -Wstack-usage=512\
+			"\
+		-DCMAKE_EXE_LINKER_FLAGS="-L$(shell readlink -f build-deps/Local/newlib/lib) -Wl,--gc-sections"\
+		-DAMIGA=1\
+		-DLIBGIT2_BUILD_DIRECTORY_NAME=build-amiga
+	rm -f bin/sgit bin/sgit.debug
+	cd build-amiga/ && $(MAKE) VERBOSE=1
+	mv bin/sgit bin/sgit.debug
+	ppc-amigaos-strip --strip-all --strip-unneeded-rel-relocs -R.comment -R.eh_frame -o bin/sgit bin/sgit.debug
+
+####################################################
+# The libgit2 dependency
+.PHONY: libgit2
+libgit2: libgit2/build-amiga/libgit2.a
+
+libgit2/build-amiga/libgit2.a: libgit-repo $(OPENSSL) pthread
+	# libgit2
+	mkdir -p libgit2/build-amiga
+	cd libgit2/build-amiga && cmake ..\
+		-DCMAKE_SYSTEM_NAME=AmigaOS\
+		-DCMAKE_C_COMPILER=$(COMPILER)\
+		-DCMAKE_C_FLAGS="-DGIT_OPENSSL -I$(shell readlink -f interim-openssl/openssl/repo/include/)\
+			-I$(shell readlink -f build-deps/Local/common/include)\
+			-fstack-usage -Wstack-usage=512\
+			"\
+		-DAMIGA=1\
+		-DUSE_SSH=OFF\
+		-DTHREADSAFE=OFF\
+		-DUSE_NSEC=OFF\
+		-DBUILD_CLAR=OFF\
+		-DBUILD_SHARED_LIBS=OFF
+	cd libgit2/build-amiga && $(MAKE)
+	touch $@
+
+####################################################
+# Various clean targets
+
+.PHONY: clean
+clean: clean-sgit clean-libgit2
+
+.PHONY: clean-libgit2
+clean-libgit2:
+	rm -Rf libgit2/build-amiga
+
+.PHONY: clean-sgit
+clean-sgit:
+	rm -Rf build-amiga

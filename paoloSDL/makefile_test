@@ -1,0 +1,4 @@
+test: test.o
+	g++ -o test test.o
+test.o: test.cpp
+	g++ -o test.o -c test.cpp

@@ -1,0 +1,50 @@
+pentagoSDL 0.1
+copyright (C) 2007 Jan Makulec, janmakulec(at)gmail(dot)com
+
+About:
+======
+
+Pentago is a two player turn based strategy game. The goal is to get
+5 marbles in a horizontal, vertical or diagonal line before your oppnent
+does. In each move the player places a marble (either black or white) on
+a 6x6 gameboard and rotates one of the four 3x3 sub-boards clockwise or
+counter clockwise by 90 degrees. If all 36 field are occupied without
+a line, the game is a draw.
+To learn more visit i.e. http://en.wikipedia.org/wiki/Pentago
+
+
+Required dependencies:
+======================
+pentagoSDL requires the SDL library (well, it isn't shocking, isn't it?)
+with SDL_image and SDL_ttf. That's all.
+
+
+Instalation:
+============
+
+Simply type
+
+    make
+
+and you should get a very nice binary ready to run. Enjoy.
+
+
+Licence:
+========
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU Library General Public
+License as published by the Free Software Foundation; either
+version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Library General Public License for more details.
+
+You should have received a copy of the GNU Library General Public
+License along with this library; if not, write to the
+Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+Boston, MA 02111-1307, USA.
+
+

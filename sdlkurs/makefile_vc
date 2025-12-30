@@ -1,0 +1,14 @@
+CC=vc
+CFLAGS=-ISYS:SDL/include -c99 -amiga -lauto -fpu=68040
+DEPS =
+OBJ = pierwszysdl.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+pierwszysdl: $(OBJ)
+	$(CC) -o $@ $^ SYS:SDL/bin/SDL_AGA_040.a SYS:gnu/lib/libc.a $(CFLAGS) 
+	
+
+clean:
+	delete pierwszysdl $(OBJ)

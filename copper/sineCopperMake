@@ -1,0 +1,16 @@
+NAME = sineCopper
+
+CC = vc +aos68k -O2
+CINCL = -I$(NDK_INC) -I"include"
+CWARN = -dontwarn=214
+CFILESU = src/colorUtil.c src/colorArrayUtil.c src/mathUtil.c src/mathArrayUtil.c src/gfxUtil.c
+CFILESSC = src/scGeo.c
+CALLFLAGS = $(CINCL) $(CWARN) $(CFILESU) $(CFILESSC)
+
+LDFLAGS = -lamiga -lauto -lmieee
+# LDFLAGS = -lamiga -lauto -lmsoft
+
+all: $(NAME).c $(NAME)Make $(CFILESU) $(CFILESSC)
+	$(CC) $(CALLFLAGS) $(LDFLAGS) $(NAME).c -o $(NAME).exe
+	
+	dir $(NAME)*

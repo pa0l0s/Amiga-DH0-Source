@@ -1,0 +1,1 @@
+vc ptetris.c -o ptetris -lamiga -lauto -c99 -fpu=68882 

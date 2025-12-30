@@ -1,0 +1,211 @@
+.k hdisk,release
+IF "<hdisk>" EQ ""
+  execute install_hd dh0:
+  quit
+ENDIF
+IF "<release>" EQ ""
+  execute install_hd <hdisk> SAS_C_5.1
+quit
+ENDIF
+copy <release>.1:c/echo ram:echo
+cd ram:
+echo "SAS *e[33mAmigaDOS C Compiler*e[0m Hard Disk Installation"
+echo " "
+echo "This procedure transfers the following file sets to <hdisk>*e[33m"
+echo "   executable files       compressed headers"
+echo "   run-time libraries     source files"
+echo "   examples               read.me"
+echo "   uncompressed headers "
+echo "*e[0m "
+echo "*e[0m "
+ask "Continue? "
+if warn
+else
+ quit
+endif
+IF EXISTS <hdisk>lc
+  echo "*e[33mlc*e[0m directory already exists on <hdisk>"
+  echo "To avoid confusion, please rename or delete *e[33m<hdisk>lc*e[0m"
+  quit
+ENDIF
+echo "Please insert *e[33mDisk #1*e[0m in any drive"
+IF EXISTS <release>.1:
+ENDIF
+echo " "
+echo "creating *e[33mlc*e[0m directory on <hdisk>"
+failat 99
+makedir <hdisk>lc
+failat 20
+echo " "
+echo "copying *e[33mread.me*e[0m file to *e[33mlc*e[0m directory"
+copy  <release>.1:read.me	      <hdisk>lc clone
+echo " "
+echo "creating *e[33mlc/c*e[0m directory on <hdisk>"
+failat 99
+makedir <hdisk>lc/c
+makedir <hdisk>lc/c/icons
+makedir <hdisk>lc/c/Starter_Project
+failat 20
+copy <release>.1:lc.info  <hdisk>lc/c.info
+copy <release>.1:lc.info  <hdisk>lc.info
+copy <release>.1:lc	  <hdisk>lc/c quiet clone
+echo "Copying SASCOPTIONS into SYS:Prefs"
+copy <release>.1:prefs	  sys:prefs clone quiet
+delete >nil: <hdisk>lc/c/starter_project_2.0.info
+delete >nil: <hdisk>lc/c/icons_2.0.info
+ask "Install 2.0 style Icons? "
+if warn
+  copy <release>.1:lc/icons_2.0 <hdisk>lc/c/icons all quiet clone
+  copy <release>.1:lc/starter_project_2.0 <hdisk>lc/c/starter_project all quiet clone
+else
+  copy <release>.1:lc/icons <hdisk>lc/c/icons all quiet clone
+  copy <release>.1:lc/starter_project <hdisk>lc/c/starter_project all quiet clone
+endif
+echo " "
+echo " "
+;
+echo "Please insert *e[33mDisk #2*e[0m in any drive"
+IF EXISTS <release>.2:
+ENDIF
+echo "copying library files"
+failat 99
+makedir <hdisk>lc/lib
+failat 20
+copy <release>.2:lib	  <hdisk>lc/lib      all quiet clone
+;
+echo "Please insert *e[33mDisk #3*e[0m in any drive"
+IF EXISTS <release>.3:
+ENDIF
+echo "copying executable files to *e[33mlc/c*e[0m directory"
+copy <release>.3:c/#?	<hdisk>lc/c all quiet clone
+echo " "
+echo "Please insert *e[33mDisk #4*e[0m in any drive"
+IF EXISTS <release>.4:
+ENDIF
+failat 99
+delete >nil: t:h2.0
+delete >nil: t:h1.3
+makedir <hdisk>lc/examples
+makedir <hdisk>lc/source
+failat 20
+copy <release>.4:lib <hdisk>lc/lib all quiet clone
+copy <release>.4:examples <hdisk>lc/examples all quiet clone
+copy <release>.4:source   <hdisk>lc/source   all quiet clone
+echo "With AmigaDOS 2.0, there are a newer set of include files"
+echo "You may choose to install the existing 1.3 header files,"
+echo "the newer 2.0 header files, or both sets."
+echo " "
+ask "Install 1.3 header files? "
+if warn
+ echo >t:h1.3 "Install 1.3"
+ echo "Creating *e[33mlc/include*e[0m directories on <hdisk>"
+ echo "It will contain 1.3 Assembly Headers and Compressed C header files"
+ echo "Uncompressed header files will be in *e[33mlc/Compiler_headers*e[0m"
+ failat 99
+ makedir <hdisk>lc/include
+ makedir <hdisk>lc/Compiler_Headers
+ failat 20
+ copy <release>.4:compiler_headers <hdisk>lc/compiler_headers all quiet clone
+ assign tp: <hdisk>lc/include
+ assign fp: <hdisk>lc/compiler_headers
+ copy <hdisk>lc/c/lcompact ram:
+ execute <release>.4:compact
+ assign tp:
+ assign fp:
+endif
+ask "Install 2.0 Header Files? "
+if warn
+  echo >t:h2.0 "install 2.0"
+  if EXISTS t:h1.3
+    echo "Creating *e[33mlc/include_2.0*e[0m directories on <hdisk>"
+    echo "It will contain 2.0 Assembly Headers and Compressed C header files"
+    echo "Uncompressed header files will be in *e[33mlc/Compiler_headers_2.0*e[0m"
+    failat 99
+    makedir <hdisk>lc/Compiler_Headers_2.0
+    makedir <hdisk>lc/Compiler_Headers_2.0/sys
+    failat 20
+    copy <release>.4:compiler_headers/#? <hdisk>lc/compiler_headers_2.0 quiet clone
+    copy <release>.4:compiler_headers/sys/#? <hdisk>lc/compiler_headers_2.0/sys quiet clone
+  else
+    echo "Creating *e[33mlc/include*e[0m directories on <hdisk>"
+    echo "It will contain 2.0 Assembly Headers and Compressed C header files"
+    echo "Uncompressed header files will be in *e[33mlc/Compiler_headers*e[0m"
+    failat 99
+    makedir <hdisk>lc/Compiler_Headers
+    makedir <hdisk>lc/Compiler_Headers/sys
+    failat 20
+    copy <release>.4:compiler_headers/#? <hdisk>lc/compiler_headers quiet clone
+    copy <release>.4:compiler_headers/sys/#? <hdisk>lc/compiler_headers/sys quiet clone
+    rename <hdisk>lc/lib/amiga.lib <hdisk>lc/lib/amiga1.3.lib
+    rename <hdisk>lc/lib/amiga2.0.lib <hdisk>lc/lib/amiga.lib
+  endif
+endif
+echo " "
+;
+echo "Please insert *e[33mDisk #5*e[0m in any drive"
+IF EXISTS <release>.5:
+ENDIF
+copy <release>.5:lseinst#? <hdisk>lc/c quiet
+if EXISTS t:h1.3
+  copy <release>.5:Assembler_Headers   <hdisk>lc/include  all quiet clone
+endif
+if EXISTS t:h2.0
+  if EXISTS t:h1.3
+    copy <release>.5:Assembler_Headers_2.0   <hdisk>lc/include_2.0  all quiet clone
+  else
+    copy <release>.5:Assembler_Headers_2.0   <hdisk>lc/include all quiet clone
+  endif
+endif
+;
+echo " "
+echo "Please insert *e[33mDisk #6*e[0m in any drive"
+IF EXISTS <release>.6:
+ENDIF
+if exists t:h2.0
+  copy <hdisk>lc/c/lcompact ram:
+  if EXISTS t:h1.3
+    copy <release>.6:Compiler_headers_2.0 <hdisk>lc/Compiler_headers_2.0  all quiet clone
+   assign from: <hdisk>lc/compiler_headers_2.0
+   assign to: <hdisk>lc/include_2.0
+   execute <release>.6:compact <hdisk>
+  else
+    copy <release>.6:Compiler_headers_2.0 <hdisk>lc/Compiler_headers  all quiet clone
+   assign from: <hdisk>lc/compiler_headers
+   assign to: <hdisk>lc/include
+   execute <release>.6:compact <hdisk>
+  endif
+endif
+echo " "
+echo "Finished transfering files."
+echo " "
+echo "The following assignments are being made; please add these"
+echo "commands to your S:startup-sequence file, BEFORE the LoadWB"
+echo "statement:"
+echo "*e[33m "
+echo "    assign LC:      <hdisk>lc/c"
+echo "    assign LIB:     LC:/lib"
+echo "    assign INCLUDE: LC:/include"
+echo "    assign QUAD:    RAM:"
+echo "    Path   LC:      Add"
+echo "*e[0m "
+if exists t:h2.0
+if exists t:h1.3
+echo "To use the 2.0 include files instead of the 1.3 include files,"
+echo "you will need to change the assignment for INCLUDE: to the"
+echo "following:"
+echo "*e[33m "
+echo "    assign INCLUDE: LC:/include_2.0"
+echo "*e[0m "
+endif
+endif
+assign LC:	<hdisk>lc/c
+assign LIB:	LC:/lib
+assign QUAD:	RAM:
+assign INCLUDE: LC:/include
+path   LC:	add
+if exists t:h1.3
+  delete t:h1.3 quiet
+endif
+if exists t:h2.0
+  delete t:h2.0 quiet
+endif

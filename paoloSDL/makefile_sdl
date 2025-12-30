@@ -1,0 +1,4 @@
+paoloSDL: paoloSDL.o
+	g++ -o paoloSDL
+paoloSDL.o: paoloSDL.cpp
+	g++ -o paoloSDL.o -c paoloSDL.cpp

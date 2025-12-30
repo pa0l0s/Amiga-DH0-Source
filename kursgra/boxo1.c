@@ -1,0 +1,142 @@
+#include <proto/exec.h>
+#include <proto/intuition.h>
+#include <proto/graphics.h>
+
+#include <dos/dos.h>
+#include <intuition/intuition.h>
+
+/*============================================================================*/
+
+struct IntuitionBase* IntuitionBase;
+struct Window* m_pWin = NULL;
+
+/*---------------------------------------------------------*/
+
+static int init(void);
+static void loop(void);
+static void close(void);
+static BOOL handleWinSignal();
+/*============================================================================*/
+
+int main(void)
+{
+	if(0 == init())
+	{
+		loop();
+	}
+
+	close();
+
+	return 0;	/*ok*/
+}
+
+/*============================================================================*/
+
+static int init(void)
+{
+	IntuitionBase = (struct IntuitionBase*)OpenLibrary("intuition.library", 36L);
+	
+	if(NULL == IntuitionBase)
+	{
+		return -1;
+	}
+
+	/*-----------------------------------------------------*/
+
+	m_pWin = (struct Window*) OpenWindowTags(NULL,
+		WA_Left, 0,
+		WA_Top, 0,
+		WA_Width, 320,
+		WA_Height, 256,
+		WA_CloseGadget, TRUE,
+		WA_Title, (ULONG)"boxo",
+		WA_Activate, TRUE,
+		WA_DragBar, TRUE,
+		WA_GimmeZeroZero, TRUE,
+		WA_IDCMP, IDCMP_CLOSEWINDOW | IDCMP_RAWKEY,
+		TAG_END);
+
+	if(NULL == m_pWin)
+	{
+		return -1;
+	}
+
+	return 0;	/*ok*/
+}
+
+/*============================================================================*/
+
+static void close(void)
+{
+	if(m_pWin)
+	{
+		CloseWindow(m_pWin);
+	}
+
+	/*-----------------------------------------------------*/
+
+	if(IntuitionBase)
+	{
+		CloseLibrary((struct Library*) IntuitionBase);
+	}
+
+}
+
+/*============================================================================*/
+
+static void loop(void)
+{
+	BOOL bEnd = FALSE;
+
+	while(!bEnd)
+	{
+		ULONG winSignal = 1L << m_pWin->UserPort->mp_SigBit;
+
+		ULONG signals = Wait(winSignal | SIGBREAKF_CTRL_C);
+
+		if(signals & SIGBREAKF_CTRL_C)
+		{
+			bEnd = TRUE;
+		}
+
+		if(signals & winSignal)
+		{
+			bEnd = handleWinSignal();
+		}
+	}
+
+}
+
+/*============================================================================*/
+
+static BOOL handleWinSignal()
+{
+	BOOL bEnd = FALSE;
+
+	while(TRUE)
+	{
+		struct IntuiMessage* pMsg = (struct IntuiMessage*) GetMsg(m_pWin->UserPort);
+
+		if(NULL == pMsg)
+		{
+			break;
+		}
+
+		ULONG msg_class = pMsg->Class;
+
+		ReplyMsg((struct Message*) pMsg);
+
+		if(IDCMP_CLOSEWINDOW == msg_class)
+		{
+			bEnd = TRUE;
+		}
+	}
+
+	return bEnd;
+}
+
+
+/*
+Źródło: https://www.ppa.pl/programy/nasza-pierwsza-gra-kurs-programowania-amigaos-i-c-czesc-1.html
+Copyright © Polski Portal Amigowy
+*/
