@@ -1,57 +1,133 @@
 #include <exec/types.h>
 #include <exec/tasks.h>
-#include <exec/lists.h>
 #include <exec/execbase.h>
-#include <dos/dos.h>
+#include <exec/lists.h>
+#include <devices/timer.h>
+#include <proto/exec.h>
+#include <proto/timer.h>
 #include <stdio.h>
+#include <string.h>
 
 extern struct ExecBase *SysBase;
 
-/* Zamiana typu noda na czytelny tekst */
-const char *nodeTypeName(UBYTE type)
-{
-    switch (type)
-    {
-        case NT_TASK:    return "Task";
-        case NT_PROCESS: return "Process";
-        default:         return "Unknown";
-    }
-}
+/* ---------------- CPU sampling ---------------- */
 
-/* Wypisanie listy tasków */
-void ListTasks(struct List *list, const char *state)
-{
+#define MAX_TASKS 128
+#define SAMPLE_COUNT 250   /* 250 * 20ms ≈ 5s */
+
+struct TaskStat {
     struct Task *task;
+    ULONG samples;
+};
 
-    for (task = (struct Task *)list->lh_Head;
-         task->tc_Node.ln_Succ != NULL;
-         task = (struct Task *)task->tc_Node.ln_Succ)
+struct TaskStat stats[MAX_TASKS];
+ULONG statCount = 0;
+ULONG totalSamples = 0;
+
+void SampleTask(void)
+{
+    struct Task *t = SysBase->ThisTask;
+    ULONG i;
+
+    for (i = 0; i < statCount; i++)
     {
-        printf("%-8s | %-24s | Pri: %3d | Type: %-7s\n",
-               state,
-               task->tc_Node.ln_Name ? task->tc_Node.ln_Name : "(noname)",
-               task->tc_Node.ln_Pri,
-               nodeTypeName(task->tc_Node.ln_Type));
+        if (stats[i].task == t)
+        {
+            stats[i].samples++;
+            totalSamples++;
+            return;
+        }
+    }
+
+    if (statCount < MAX_TASKS)
+    {
+        stats[statCount].task = t;
+        stats[statCount].samples = 1;
+        statCount++;
+        totalSamples++;
     }
 }
+
+float GetCPU(struct Task *t)
+{
+    ULONG i;
+    for (i = 0; i < statCount; i++)
+        if (stats[i].task == t)
+            return (stats[i].samples * 100.0f) / totalSamples;
+    return 0.0f;
+}
+
+/* ---------------- Task listing ---------------- */
+
+void PrintTask(struct Task *t, const char *state)
+{
+    printf("%-22s %-7s Pri:%3ld Stack:%6lu SP:0x%08lx CPU:%5.2f%%\n",
+        t->tc_Node.ln_Name ? t->tc_Node.ln_Name : "(noname)",
+        state,
+        t->tc_Node.ln_Pri,
+        t->tc_SPUpper - t->tc_SPLower,
+        (ULONG)t->tc_SPReg,
+        GetCPU(t)
+    );
+}
+
+void ListTasks(void)
+{
+    struct Task *t;
+
+    printf("\nTASK LIST:\n");
+    printf("---------------------------------------------------------------\n");
+
+    /* Running */
+    PrintTask(SysBase->ThisTask, "RUN");
+
+    /* Ready list */
+    for (t = (struct Task *)SysBase->TaskReady.lh_Head;
+         t->tc_Node.ln_Succ;
+         t = (struct Task *)t->tc_Node.ln_Succ)
+    {
+        PrintTask(t, "READY");
+    }
+
+    /* Waiting list */
+    for (t = (struct Task *)SysBase->TaskWait.lh_Head;
+         t->tc_Node.ln_Succ;
+         t = (struct Task *)t->tc_Node.ln_Succ)
+    {
+        PrintTask(t, "WAIT");
+    }
+}
+
+/* ---------------- main ---------------- */
 
 int main(void)
 {
-    printf("\n=== AmigaOS 3.1 Task List ===\n\n");
+    struct MsgPort *timerPort;
+    struct timerequest *tr;
+    ULONG i;
 
-    Forbid();   /* blokujemy przełączanie tasków */
+    timerPort = CreateMsgPort();
+    if (!timerPort) return 20;
 
-    printf("STATE    | NAME                     | DETAILS\n");
-    printf("---------+--------------------------+-----------------------------\n");
+    tr = (struct timerequest *)CreateIORequest(timerPort, sizeof(struct timerequest));
+    if (!tr) return 20;
 
-    /* Taski gotowe do uruchomienia */
-    ListTasks(&SysBase->TaskReady, "READY");
+    if (OpenDevice(TIMERNAME, UNIT_MICROHZ, (struct IORequest *)tr, 0))
+        return 20;
 
-    /* Taski czekające */
-    ListTasks(&SysBase->TaskWait, "WAITING");
+    for (i = 0; i < SAMPLE_COUNT; i++)
+    {
+        tr->tr_node.io_Command = TR_ADDREQUEST;
+        tr->tr_time.tv_secs = 0;
+        tr->tr_time.tv_micro = 20000; /* 20 ms */
+        DoIO((struct IORequest *)tr);
+        SampleTask();
+    }
 
-    Permit();
+    CloseDevice((struct IORequest *)tr);
+    DeleteIORequest((struct IORequest *)tr);
+    DeleteMsgPort(timerPort);
 
-    printf("\nDone.\n");
+    ListTasks();
     return 0;
 }

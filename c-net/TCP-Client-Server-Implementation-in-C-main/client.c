@@ -12,47 +12,53 @@
 typedef unsigned int socklen_t;
 #endif
 
-int main(){
+int main(int argc, char *argv[])
+{
+    const char *ip = "127.0.0.1";   /* default */
+    int port = 5566;
 
-  //char *ip = "127.0.0.1";
-  char *ip = "192.168.0.236";
-  int port = 5566;
+    int sock;
+    struct sockaddr_in addr;
+    char buffer[1024];
+    int r;
 
-  int sock;
-  struct sockaddr_in addr;
-  socklen_t addr_size;
-  char buffer[1024];
-  int n;
-  int r;
+    /* IP from command line */
+    if (argc > 1) {
+        ip = argv[1];
+    }
 
-  sock = socket(AF_INET, SOCK_STREAM, 0);
-  if (sock < 0){
-    perror("[-]Socket error");
-    exit(1);
-  }
-  printf("[+]TCP server socket created.\n");
+    printf("Using IP: %s\n", ip);
 
-  memset(&addr, '\0', sizeof(addr));
-  addr.sin_family = AF_INET;
-  addr.sin_port = port;
-  addr.sin_addr.s_addr = inet_addr(ip);
+    sock = socket(AF_INET, SOCK_STREAM, 0);
+    if (sock < 0) {
+        perror("[-]Socket error");
+        exit(1);
+    }
 
-  r=connect(sock, (struct sockaddr*)&addr, sizeof(addr));
-  printf("Connected to the server.\n");
-  printf("r: %i\n",r);
+    memset(&addr, 0, sizeof(addr));
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(port);
+    addr.sin_addr.s_addr = inet_addr(ip);
 
-  bzero(buffer, 1024);
-  strcpy(buffer, "HELLO, THIS IS CLIENT.");
-  printf("Client: %s\n", buffer);
-  send(sock, buffer, strlen(buffer), 0);
+    r = connect(sock, (struct sockaddr*)&addr, sizeof(addr));
+    if (r < 0) {
+        perror("[-]Connect error");
+        close(sock);
+        exit(1);
+    }
 
-  bzero(buffer, 1024);
-  recv(sock, buffer, sizeof(buffer), 0);
-  printf("Server: %s\n", buffer);
+    printf("[+]Connected to the server.\n");
 
-  close(sock);
-  printf("Disconnected from the server.\n");
+    strcpy(buffer, "HELLO, THIS IS CLIENT.");
+    printf("Client: %s\n", buffer);
+    send(sock, buffer, strlen(buffer), 0);
 
-  return 0;
+    memset(buffer, 0, sizeof(buffer));
+    recv(sock, buffer, sizeof(buffer) - 1, 0);
+    printf("Server: %s\n", buffer);
 
+    close(sock);
+    printf("Disconnected from the server.\n");
+
+    return 0;
 }
